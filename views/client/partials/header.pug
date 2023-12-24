@@ -1,0 +1,49 @@
+header.header
+  .container
+    .row.align-items-center
+      .col-3
+        .inner-logo
+          a(href="/")
+            img(src="/images/logo.svg", alt="Logo")
+
+      .col-5
+        .box-search
+          form(
+            action="/search/result"
+            method="GET"
+          )
+            div(class="form-group d-flex mb-0")
+              input(
+                type="text"
+                placeholder="Nhập từ khóa..."
+                class="form-control"
+                name="keyword"
+                value=keyword
+              )
+              button(
+                type="submit"
+                class="btn btn-primary"
+              ) Tìm
+          .inner-suggest 
+            .inner-list
+
+      .col-4
+        .inner-menu
+          ul
+            
+            li
+              a(href="/") <i class="fa-solid fa-house"></i>  Trang chủ
+            li
+              a(href="/topics") <i class="fa-solid fa-music"></i> Chủ đề
+            if(!user)
+              li
+                a(href="/user/register") <i class="fa-solid fa-registered"></i> Đăng kí
+              li
+                a(href="/user/login") <i class="fa-solid fa-right-from-bracket"></i> Đăng nhập
+            else 
+              li
+                a(href="/favorite-songs") <i class="fa-solid fa-heart"></i> Yêu thích
+              li
+                a(href="/user/detail") <i class="fa-solid fa-user"></i> #{user.fullName}             
+              li
+                a(href="/user/logout") <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
